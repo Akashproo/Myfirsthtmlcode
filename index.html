@@ -54,7 +54,39 @@
     <img src="./assets/download (2).jpg" heigth="300" width="200">
     <video poster="./assets/download.jpg" height="281" width = "500" controls src="./assets/fastytm.com Rebel Theatrical Trailer   Prabhas, Tamanna   YouTube 360P.mp4" controls ></video>
 
-    
+    <script>
+const audios = document.querySelectorAll('audio');
+const videos = document.querySelectorAll('video');
+
+audios.forEach((audio) => {
+    audio.addEventListener('play', () => {
+        audios.forEach((otherAudio) => {
+            if (otherAudio !== audio) {
+                otherAudio.pause();
+            }
+        });
+
+        videos.forEach((video) => {
+            video.pause();
+        });
+    });
+});
+
+videos.forEach((video) => {
+    video.addEventListener('play', () => {
+        videos.forEach((otherVideo) => {
+            if (otherVideo !== video) {
+                otherVideo.pause();
+            }
+        });
+
+        audios.forEach((audio) => {
+            audio.pause();
+        });
+    });
+});
+</script>    
+ 
 
 </body>
 </html>
